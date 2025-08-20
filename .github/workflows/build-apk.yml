@@ -26,11 +26,13 @@ jobs:
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
-        java-version: '11'
+        java-version: '17'
         
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
-      
+      with:
+        cmdline-tools-version: 11076708
+        
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -42,7 +44,7 @@ jobs:
         flet pack main.py --platform android \
           --name "URL Shortener" \
           --description "Mobile URL Shortener App" \
-          --author "Your Name" \
+          --author "Giovanni" \
           --version "1.0.0" \
           --build-number 1 \
           --icon icon.png \
