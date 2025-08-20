@@ -41,26 +41,26 @@ jobs:
         
     - name: Build APK
       run: |
-        flet pack main.py --platform android \
+        flet build apk \
           --name "URL Shortener" \
           --description "Mobile URL Shortener App" \
           --author "Giovanni" \
           --version "1.0.0" \
           --build-number 1 \
           --icon icon.png \
-          --distpath dist
+          --output dist
           
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: url-shortener-apk
-        path: dist/*.apk
+        path: build/apk/*.apk
         
     - name: Create Release (if tag)
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v1
       with:
-        files: dist/*.apk
+        files: build/apk/*.apk
         draft: false
         prerelease: false
       env:
