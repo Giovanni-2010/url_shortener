@@ -1,0 +1,14 @@
+[tool.flet]
+name = "URL Shortener"
+description = "Mobile URL Shortener App with QR Code Generator"
+author = "Giovanni"
+version = "1.0.0"
+
+[tool.flet.android]
+package = "com.giovanni.urlshortener"
+icon = "icon.png"
+build-number = 1
+
+[build-system]
+requires = ["flet"]
+build-backend = "flet_core.build"

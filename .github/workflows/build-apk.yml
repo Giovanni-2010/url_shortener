@@ -41,14 +41,7 @@ jobs:
         
     - name: Build APK
       run: |
-        flet build apk \
-          --name "URL Shortener" \
-          --description "Mobile URL Shortener App" \
-          --author "Giovanni" \
-          --version "1.0.0" \
-          --build-number 1 \
-          --icon icon.png \
-          --output dist
+        flet build apk --verbose
           
     - name: Upload APK
       uses: actions/upload-artifact@v4
